@@ -3,6 +3,7 @@ import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 // home screen
 import Welcome from "./home/welcome/Welcome";
 import Popularcars from "./home/popular/Popularcars";
+import AvailableCars from "./home/available/AvailableCars";
 
 // job details screen
 
@@ -14,5 +15,6 @@ export {
   ScreenHeaderBtn,
   Welcome,
   Popularcars,
-  PopularcarCard
+  PopularcarCard,
+  AvailableCars,
 };

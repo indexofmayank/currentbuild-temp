@@ -7,6 +7,7 @@ import {
   Popularcars,
   ScreenHeaderBtn,
   Welcome,
+  AvailableCars
 } from "../components";
 
 const Home = () => {
@@ -47,6 +48,7 @@ const Home = () => {
           />
 
           <Popularcars />
+          <AvailableCars />
         </View>
       </ScrollView>
     </SafeAreaView>

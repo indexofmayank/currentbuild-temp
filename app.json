@@ -4,7 +4,15 @@
     "web": {
       "bundler": "metro"
     },
-    "name": "jobsift",
-    "slug": "jobsift"
+    "name": "rscars",
+    "slug": "rscars",
+    "extra": {
+      "eas": {
+        "projectId": "139ac9e0-9f1f-44d1-bc32-1d22a65d8364"
+      }
+    },
+    "android": {
+      "package": "com.mayanktiwari.rscars"
+    }
   }
 }

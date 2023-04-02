@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   Image
 } from "react-native";
 import { useRouter } from "expo-router";
+import { firebase } from '../../../firebase.config';
 
 import styles from "./welcome.style";
 import { icons, SIZES } from "../../../constants";
@@ -16,11 +17,27 @@ const jobTypes = ["Full-time", "Part-time", "Contract"];
 const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
   const [activeJobType, setActiveJobType] = useState("Full-time");
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(firebase.auth().currentUser.uid)
+      .get()
+      .then((snapshot) => {
+        if (snapshot.exists) {
+          setUserName(snapshot.data());
+        } else {
+          console.log("User does not exists");
+        }
+      });
+  });
 
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello Mayank</Text>
+        <Text style={styles.userName}>Hello, {userName.firstName}</Text>
         <Text style={styles.welcomeMessage}>Find your perfect Car</Text>
       </View>
 
@@ -43,7 +60,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
         </TouchableOpacity>
       </View>
 
-     
+
     </View>
   );
 };

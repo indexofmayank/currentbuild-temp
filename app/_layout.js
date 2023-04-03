@@ -23,6 +23,8 @@ const Layout = () => {
   return (
     <Stack initialRouteName="home">
       <Stack.Screen name="home" />
+      <Stack.Screen name="Login" />
+      <Stack.Screen name="Registration" />
     </Stack>
   )
 };

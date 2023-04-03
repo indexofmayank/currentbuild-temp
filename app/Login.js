@@ -8,9 +8,10 @@ import {
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { firebase } from "../firebase.config";
+import { useRouter } from "expo-router";
 
 const Login = () => {
-  const navigation = useNavigation();
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -51,7 +52,7 @@ const Login = () => {
         <Text style={{ fontWeight: "bold", fontSize: 22 }}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Registration')}
+        onPress={() => router.push(`/Registration`)}
         style={{marginTop: 20}}
       >
         <Text style={{fontWeight: 'bold',  fontSize: 16}}>

@@ -53,7 +53,7 @@ const Registration = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: "bold", fontSize: "23" }}>
+      <Text style={{ fontWeight: "bold", fontSize: 23 }}>
         Register Here!!
       </Text>
       <View style={{ marginTop: 40 }}>
@@ -90,7 +90,7 @@ const Registration = () => {
         onPress={() => registerUser(email, password, firstName, lastName)}
         style={styles.button}
       >
-        <Text style={{ fontWeight: "bold", fontSize: "22" }}>Register</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 22 }}>Register</Text>
       </TouchableOpacity>
     </View>
   );

@@ -10,7 +10,7 @@ const Company = ({ carImage, carBrand, carModel, carPrice }) => {
     <View style={styles.container}>
       <View style={styles.logoBox}>
       <Gallery
-        style={{ flex: 1, backgroundColor: '#FE7654' }}
+        style={{ flex: 1 }}
         images={[
           { source: { uri: 'https://res.cloudinary.com/domrtfad0/image/upload/v1680293370/1_hr4dxt.png' } },
           { source: { uri: 'https://res.cloudinary.com/domrtfad0/image/upload/v1680293370/1_hr4dxt.png' } },

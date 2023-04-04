@@ -4,22 +4,24 @@ import {
   TouchableOpacity,
   TextInput,
   StyleSheet,
+  Image
 } from "react-native";
 import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
 import { firebase } from "../firebase.config";
 import { useRouter } from "expo-router";
+import { FONT, SIZES, COLORS, SHADOWS } from "../constants";
 
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
- const loginUser = async (email, password) => {
+  const loginUser = async (email, password) => {
     try {
-     const message = await firebase.auth().signInWithEmailAndPassword(email, password);
-     console.log(message);
-      
+      const message = await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password);
+      console.log(message);
     } catch (error) {
       alert(error.message);
     }
@@ -27,7 +29,28 @@ const Login = () => {
 
   return (
     <View style={StyleSheet.container}>
-      <Text style={{ fontWeight: "bold", fontSize: 26 }}>Login</Text>
+      <Text
+        style={{
+          fontFamily: FONT.regular,
+          fontSize: SIZES.large,
+          color: COLORS.primary,
+          fontSize: 30,
+          paddingLeft: 5,
+        }}
+      >
+        Welcome to Rscars,
+      </Text>
+      <Text
+        style={{
+          fontFamily: FONT.regular,
+          fontSize: SIZES.large,
+          color: COLORS.secondary,
+          fontSize: 20,
+          paddingLeft: 5,
+        }}
+      >
+        It seems you havn't logged in with us, we please you to log in or create an account with us.
+      </Text>
       <View style={{ marginTop: 40 }}>
         <TextInput
           style={styles.textInput}
@@ -53,15 +76,24 @@ const Login = () => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => router.push(`/Registration`)}
-        style={{marginTop: 20}}
+        style={{ marginTop: 20 }}
       >
-        <Text style={{fontWeight: 'bold',  fontSize: 16}}>
+        <Text style={{ fontWeight: "bold", fontSize: 16 }}>
           Don't have an account? Register Now.
         </Text>
       </TouchableOpacity>
-
+        <View>
+        <Image
+        source={{
+          uri: "https://res.cloudinary.com/domrtfad0/image/upload/v1680646181/rs_tsupkv.jpg"
+        }}
+        resizeMode='stretch'
+        style={styles.Image}
+      />
+        </View>
 
     </View>
+
   );
 };
 
@@ -70,7 +102,7 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 100,
   },
   textInput: {
@@ -78,17 +110,22 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     fontSize: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#00e4d0',
+    borderBottomColor: "#FE7654",
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: "center",
   },
   button: {
     marginTop: 50,
     height: 70,
     width: 250,
-    backgroundColor: '#00e4d0',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#FE7654",
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 50,
+  },
+  Image: {
+    height: 100,
+    width: 450,
+    paddingLeft: 10
   }
-})
+});

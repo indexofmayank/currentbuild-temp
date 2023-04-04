@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logoBox: {
-    width: 80,
-    height: 80,
+    width: 350,
+    height: 200,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFF",

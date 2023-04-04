@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Animated } from "react-native";
+import Gallery from 'react-native-image-gallery';
 
 import styles from "./company.style";
 import { icons } from "../../../constants";
@@ -8,12 +9,15 @@ const Company = ({ carImage, carBrand, carModel, carPrice }) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoBox}>
-        <Image
-          source={{
-            uri: carImage
-          }}
-          style={styles.logoImage}
-        />
+      <Gallery
+        style={{ flex: 1, backgroundColor: '#FE7654' }}
+        images={[
+          { source: { uri: 'https://res.cloudinary.com/domrtfad0/image/upload/v1680293370/1_hr4dxt.png' } },
+          { source: { uri: 'https://res.cloudinary.com/domrtfad0/image/upload/v1680293370/1_hr4dxt.png' } },
+          { source: { uri: 'https://res.cloudinary.com/domrtfad0/image/upload/v1680293371/pngwing.com_sj6k9b.png' } },
+          { source: { uri: 'https://res.cloudinary.com/domrtfad0/image/upload/v1680293370/1_hr4dxt.png' } }
+        ]}
+      />
       </View>
 
       <View style={styles.jobTitleBox}>

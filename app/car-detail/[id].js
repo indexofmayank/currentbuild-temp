@@ -77,12 +77,7 @@ const carDetails = () => {
             <Text>Something Went Wrong</Text>
           ) : (
             <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
-              <Company
-                carImage={car.image}
-                carBrand={car.brand}
-                carModel={car.model}
-                carPrice={car.price}
-              />
+             
               <CarTabs
                 tabs={tabs}
                 activeTab={activeTab}
@@ -92,7 +87,8 @@ const carDetails = () => {
             </View>
           )}
         </ScrollView>
-        <CarFooter />
+        <CarFooter id={params.id}
+        />
       </>
     </SafeAreaView>
   );

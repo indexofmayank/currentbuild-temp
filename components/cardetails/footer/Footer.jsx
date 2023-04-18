@@ -1,9 +1,12 @@
 import { View, Text, TouchableOpacity, Image, Linking } from "react-native";
-
+import { useRouter } from "expo-router";
 import styles from "./footer.style";
 import { icons } from "../../../constants";
+import {COLORS} from "../../../constants";
 
-const Footer = ({ url }) => {
+
+const Footer = (props) => {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.likeBtn}>
@@ -16,7 +19,7 @@ const Footer = ({ url }) => {
 
       <TouchableOpacity
         style={styles.applyBtn}
-        // onPress={() => Linking.openURL(url)}
+          onPress={() => router.push(`booking/${props.id}`)}
       >
         <Text style={styles.applyBtnText}>Book Now</Text>
       </TouchableOpacity>
